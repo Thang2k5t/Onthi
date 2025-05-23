@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        header{
+            background-color:black ;
+            color: white;
+            text-align: left;
+            padding-left: 20px;
+            height: 70px;
+        }
+        nav{
+            background-color: aqua;
+            height: 50px;  
+        }
+        nav ul{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto auto auto auto;
+            list-style-type: none;
+        }
+        nav>ul>li a{
+            text-decoration: none;
+            display: inline-block;
+            line-height: 50px;
+            color: black;
+            text-align: center;
+            width: 150px;
+        }
+        nav>ul>li a:hover{
+            background-color: aliceblue;
+        }
+        .cha{
+            position: relative;
+        }
+        .con{
+            position: absolute;
+            background-color: aqua;
+            display: none;
+            list-style-type: none;
+            width:150px;
+	        left:0px;
+            top:50px;
+        }
+        .cha:hover .con{
+            display: block;
+        }
+        .con>li a{
+            text-decoration: none;
+            display: inline-block;
+            line-height: 50px;
+            color: black;
+            text-align: center;
+            border-top: 1px solid white;
+            width: 150px;
+        }
+        .con>li a:hover{
+            background-color: aliceblue;
+        }
+        input{
+            width: 150px;
+            height: 30px;
+            margin-top: 10px;
+        }
+        section{
+            margin-top: 20px;
+        }
+        .anhchinh{
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            justify-content: center;
+            margin-bottom: 50px;
+        }
+        .anh{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            border: 0.5px solid #383838;
+        }
+        p{
+            font-style: italic;
+            text-align: center;
+        }
+        footer{
+            background-color: black;
+            color: white;
+            text-align: left;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+         <h1>Shoptretho.com.vn</h1>
+         <span> Bố mẹ tìm gì cho bé hôm nay</span>
+    </header>
+    <nav>
+         <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li class="cha"><a href="#">Sản phẩm</a>
+              <ul class="con">
+                 <li><a href="#">Đồ chơi bé nam</a></li>
+                 <li><a href="#">Đô chơi bé nữ</a></li>
+                 <li><a href="#">Đồ chơi học tập</a></li>
+                 <li><a href="#">Đồ chơi thể thao</a></li>
+                 <li><a href="#">Đồ chơi IQ</a></li>
+              </ul></li>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Trang chủ</a></li>
+            <input>
+         </ul>
+    </nav>
+    <section>
+        <div>
+            <img src="cỏ.png" width="100%" height="150px">
+        </div>
+        <h2> CÁC LOẠI ĐỒ CHƠI</h2>
+        <div class="anhchinh">
+             <div class="anh">
+                <img src="hóa.png">
+                <p>Đồ chơi giải trí</p>
+            </div>
+            <div class="anh">
+                <img src="hóa.png">
+                <p>Đồ chơi giải trí</p>
+            </div>
+            <div class="anh">
+                <img src="hóa.png">
+                <p>Đồ chơi giải trí</p>
+            </div>
+            <div class="anh">
+                <img src="hóa.png">
+                <p>Đồ chơi giải trí</p>
+            </div>
+            <div class="anh">
+                <img src="hóa.png">
+                <p>Đồ chơi giải trí</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <h3>Shoptretho.com.vn</h3>
+        <span>sđt: 0347399792</span>
+    </footer>
+</body>
+</html>

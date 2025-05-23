@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cau 1 - ma de 3475</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-size: 16px;
+            color: #000066;
+            background-color: #00a69b;
+        }
+        header {
+            width: 100%;
+            height: 60px;
+            line-height: 60px;
+            background-color: bisque;
+            text-align: center;
+        }
+        .list {
+            display: flex;
+            list-style: none;
+            justify-content: space-between;
+        }
+        .item {
+            position: relative;
+            flex: 1;
+        }
+        .item:hover .sublist{
+            display: block;
+        }
+        .link,
+        .sublink {
+            display: block;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #ffccff;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+        }
+        .link:hover,
+        .sublink:hover {
+            background-color: #66ffff;
+        }
+        .sublist {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            list-style: none;
+            display: none;
+        }
+        .content {
+            margin-top: 20px;
+            display: flex;
+        }
+        .content-left{
+            flex: 1;
+        }
+        .content-left-container {
+            display: flex;
+        }
+        .content-left-container .img {
+            width: 40%;
+            height: 400px;
+            background-color: brown;
+            margin: 10px;
+        }
+        .post-list {
+            width: 50%;
+        }
+        .post-item {
+            display: flex;
+            margin: 10px;
+            align-items: center;
+        }
+        .post-item-img {
+            width: 50px;
+            height: 50px;
+            background-color: brown;
+            margin-right: 10px;
+        }
+        .post-item p {
+            max-width: 260px;
+        }
+        .kitchen-models {
+        padding-right: 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .kitchen-item {
+        border: 1px solid #eee;
+        padding: 10px;
+        border-radius: 5px;
+        background-color: #fff;
+        text-align: center;
+    }
+
+    .kitchen-item img {
+        width: 80%;
+        height: auto;
+        max-height: 150px; /* Adjust height as needed */
+        object-fit: cover;
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+
+    .kitchen-description {
+        font-size: 0.9em;
+        color: #555;
+        margin: 0;
+    }
+
+
+    .right-sidebar {
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .discount-banner {
+        background-color: #fcf8e3; /* Light yellow background */
+        border: 1px solid #faebcc; /* Yellow border */
+        padding: 8px 15px;
+        text-align: center;
+        font-weight: bold;
+        color: #8a6d3b; /* Dark yellow text */
+        border-radius: 5px;
+        font-size: 0.9em;
+        margin-bottom: 15px;
+    }
+
+    .product-card {
+        border: 1px solid #eee;
+        padding: 15px;
+        border-radius: 5px;
+        background-color: #fff;
+        text-align: center;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+
+    .product-card img {
+        max-width: 80%; /* Adjust image size within card */
+        height: auto;
+        max-height: 120px;
+        object-fit: contain; /* Ensure full image is visible */
+        display: block;
+        margin: 0 auto 10px auto;
+    }
+
+    .product-title {
+        font-weight: bold;
+        font-size: 1em;
+        color: #333;
+        margin-bottom: 5px;
+    }
+
+    .product-description {
+        font-size: 0.85em;
+        color: #666;
+        margin-bottom: 10px;
+    }
+
+    .buy-button {
+        background-color: #007bff; /* Blue button, adjust as needed */
+        color: white;
+        border: none;
+        padding: 8px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9em;
+        text-transform: uppercase;
+        transition: background-color 0.3s ease;
+    }
+
+    .buy-button:hover {
+        background-color: #0056b3;
+    }
+    </style>
+</head>
+<body>
+    <header>HEADER</header>
+    <section>
+        <nav>
+            <ul class="list">
+                <li class="item"><a href="#" class="link">Trang Chu</a></li>
+                <li class="item"><a href="#" class="link">Biet Thu</a></li>
+                <li class="item"><a href="#" class="link">Nha Pho</a></li>
+                <li class="item"><a href="#" class="link">Nha Cap 4</a></li>
+                <li class="item"><a href="#" class="link">Nha Ong</a></li>
+                <li class="item"><a href="#" class="link">Nha Vuon</a></li>
+                <li class="item"><a href="#" class="link">Nha Nong Thon</a></li>
+                <li class="item">
+                    <a href="#" class="link">Noi That</a>
+                    <ul class="sublist">
+                        <li class="subitem"><a href="#" class="sublink">Nha Bep</a></li>
+                        <li class="subitem"><a href="#" class="sublink">Phong Ngu</a></li>
+                        <li class="subitem"><a href="#" class="sublink">Phong Khach</a></li>
+                        <li class="subitem"><a href="#" class="sublink">Nha Tam</a></li>
+                        <li class="subitem"><a href="#" class="sublink">Cau Thang</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <div class="content-left">
+                <h1>MAU BIET THU</h1>
+                <div class="content-left-container">
+                    <img src="hóa.png" class="img"></img>
+                    <div class="post-list">
+                        <div class="post-item">
+                            <img src="hóa.png" class="post-item-img"></img>
+                            <p>
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                            </p>
+                        </div>
+                        <div class="post-item">
+                            <img src="hóa.png" class="post-item-img"></img>
+                            <p>
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                            </p>
+                        </div>
+                        <div class="post-item">
+                            <img src="hóa.png" class="post-item-img"></img>
+                            <p>
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                            </p>
+                        </div>
+                        <div class="post-item">
+                            <img src="hóa.png" class="post-item-img"></img>
+                            <p>
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                            </p>
+                        </div>
+                        <div class="post-item">
+                            <img src="hóa.png" class="post-item-img"></img>
+                            <p>
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                                BTS noi that thiet ke 2 tang 3 tang sang trong
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="kitchen-models">
+                <h3 class="section-title">MẪU NHÀ BẾP</h3>
+                <div class="kitchen-item">
+                    <img src="hóa.png">
+                    <p class="kitchen-description">Nội thất nhà bếp bằng gỗ mang phong cách mộc mạc...</p>
+                </div>
+                <div class="kitchen-item">
+                    <img src="hóa.png" >
+                    <p class="kitchen-description">Nội thất nhà bếp bằng gỗ mang phong cách mộc mạc...</p>
+                </div>
+            </section>
+
+            <aside class="right-sidebar">
+                <div class="discount-banner">
+                    <p>Có Mã Giảm Thêm Đến 15%</p>
+                </div>
+                <div class="product-card">
+                    <img src="hóa.png" alt="Product bowl">
+                    <p class="product-title">Khay Rút Tròn Multi One Độc Đáo</p>
+                    <p class="product-description">Kích thước: D339*35*27 cm</p>
+                    <button class="buy-button">MUA NGAY</button>
+                </div>
+                <div class="product-card">
+                    <img src="hóa.png" alt="Product sneakers">
+                    <p class="product-title">Sneakers Bếp Hunter 2018</p>
+                    <button class="buy-button">MUA NGAY</button>
+                </div>
+            </aside>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

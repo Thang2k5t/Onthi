@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing:border-box;
+        }
+        nav{
+            background-color:#8AD385;
+            width: 200px;
+            height:357px;
+            margin-top:100px ;
+            float: left;
+        }
+        nav ul{
+            display: block;
+            grid-template-columns: auto auto auto auto auto auto auto;
+            list-style-type: none;
+        }
+        nav>ul>li a{
+            text-decoration: none;
+            display: inline-block;
+            line-height: 30px;
+            color: black;
+            padding: 10px;
+            width: 100%;
+            border-top: 1px solid white;
+        }
+        nav>ul>li a:hover{
+            background-color:#CDE2CD;
+        }
+        .cha{
+	position:relative;
+}
+.con{
+	position:absolute;
+	width:200px;
+	background-color:#8AD385;
+	display: none;
+	left:200px;
+    top:0px;
+    list-style-type: none;
+}
+.cha:hover .con{
+	display:block;
+}
+.con>li>a{
+	text-decoration:none;
+	line-height:40px;
+    color: black;
+    border-top: 1px solid white;
+	display:inline-block;
+	width:100%;
+    padding: 5px;
+}
+	.con a:hover{
+		background-color:#CDE2CD;
+	}
+        .content{
+              display: flex;
+        width: 1250px; /* Đảm bảo chiều rộng đủ chứa cả nav và section */
+        height: 550px;
+        margin: 0px 200px; /* Để căn giữa nếu muốn */
+        }
+        .right{
+             display:grid;
+	         grid-template-columns:auto auto;
+             margin-left: 20px;
+             margin-top: 50px;
+        }
+        .left{
+            width: 150px;
+            height: 400px;
+            margin-left:30px ;
+            margin-top: 50px;
+        }
+        .anh{
+            padding-left: 10px;
+        }
+        .chu{
+            text-align:justify;
+	        padding:0 10px;    
+        }
+        footer{
+            background-color: black;
+            color: white;
+            height: 40px;
+            text-align: center;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="tải xuống.jfif" height="70px" width="100%">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Trang chủ</a></li>
+            <li class="cha"><a href="#">Siêu thị sách</a>
+              <ul class="con">
+                <li><a href="#">Sách mới</a></li>
+                <li><a href="#">Sách bán chạy</a></li>
+                <li><a href="#">Bảng giá danh mục sách</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Siêu thị thành nghĩa</a></li>
+            <li><a href="#">Công ty in-DV in ấn</a></li>
+            <li><a href="#">Tuyển dụng</a></li>
+            <li><a href="#">Tin tức</a></li>
+            <li><a href="#">Kiểm kê kho</a></li>
+        </ul>
+    </nav>
+    <section class="content">
+        <div class="left">
+             <h2>Hệ thống siêu thị - nhà sách</h2>
+             <ul>
+                <li>Nhà sách NGUYỄN VĂN CỬ chi nhánh QUẬN 1</li>
+                <li>Nhà sách NGUYỄN VĂN CỬ chi nhánh TÂY NINH</li>
+                <li>Siêu thị SINH VIÊN chi nhánh THỦ ĐỨC</li>
+                <li>Siêu thị THÀNH NGHĨA CHI NHÁNH QUẬN 9</li>
+                <li>Siêu thị VĂN HÓA TIỀN GIANG</li>
+                <li>Siêu thị ĐỒNG NAI</li>
+                <li>Nhà sách NGUYỄN TẤT THÀNH chi nhánh QUẬN 4</li>
+                <li>Nhà sách NGUYỄN VĂN CỬ chi nhánh HÀ NỘI</li>
+             </ul>
+        </div>
+        <div class="right">
+              <div class="anh" >
+                     <img src="hóa.png" width="250px" height="200px">
+              </div>
+              <div class="chu">
+                <h3>SÁCH BỘ GIÁO KHOA LỚP 10</h3>
+                Tác giả: Bộ Giao Dục và Đào Tạo<br>
+                Định dạng: Bìa mềm Nhà xuất bản Giao Dục Việt Nam xuất bản 2014<br>
+                Lượt xem: 1.793<br>
+                Gía bán: 132.600đ
+              </div>
+              <div class="anh">
+                <img src="cỏ.png" width="250px" height="200px">
+              </div>
+              <div class="chu">
+                <h3>HƯỚNG DẪN CHĂM SÓC BỂ CÁ</h3>
+                Tác giả: Trí Tuệ Nhà xuất bản: Thanh Niên<br>
+                Số trang: 102<br>
+                Lượt xem: 2.086<br>
+                Gía bán: 30.000đ
+              </div>
+        </div>
+    </section>
+    <footer>
+        <span>Bản quyền CNTT_HAUI.com</span>
+    </footer>
+</body>
+</html>

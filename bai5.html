@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mẫu Biệt Thự & Mẫu Nhà Bếp</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+    font-family: Arial, sans-serif; /* A common, clean font */
+    margin: 0;
+    padding: 20px; /* Some padding around the entire content */
+    line-height: 1.6;
+    color: #333;
+    background-color: #f0f2f5; /* Light grey background */
+    display: flex;
+    justify-content: center; /* Center the main container */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px; /* Adjust max-width as per your design */
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.content-section {
+    display: flex;
+    gap: 20px; /* Space between Villa, Kitchen, and Sidebar sections */
+    flex-grow: 1; /* Allow content section to grow */
+}
+
+/* Section Titles */
+.section-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0056b3; /* A blue color, adjust as seen in the image */
+    margin-top: 0;
+    margin-bottom: 15px;
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Villa Models Section */
+.villa-models {
+    flex: 2; /* Villas section takes more space */
+    padding-right: 20px; /* Add internal padding */
+}
+
+.villa-main-item {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.villa-main-item img {
+    width: 100%; /* Make image fill its container */
+    height: auto;
+    max-height: 250px; /* Adjust as needed */
+    object-fit: cover; /* Crop image to fit */
+    display: block; /* Remove extra space below image */
+    margin-bottom: 10px;
+}
+
+.villa-main-text {
+    font-weight: bold;
+    color: #0056b3;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.villa-list {
+    display: flex;
+    flex-direction: column; /* Stack sub-items vertically */
+    gap: 15px;
+}
+
+.villa-sub-item {
+    display: flex;
+    border: 1px solid #eee;
+    padding: 8px;
+    border-radius: 5px;
+    background-color: #fff;
+    align-items: flex-start; /* Align items to the top */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.villa-sub-item img {
+    width: 70px; /* Fixed width for thumbnail */
+    height: 70px; /* Fixed height for thumbnail */
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.villa-sub-description {
+    flex-grow: 1;
+}
+
+.villa-sub-description h4 {
+    margin: 0 0 5px 0;
+    font-size: 0.95em;
+    color: #333;
+}
+
+.villa-sub-description p {
+    margin: 2px 0;
+    font-size: 0.8em;
+    color: #666;
+}
+
+/* Kitchen Models Section */
+.kitchen-models {
+    flex: 1; /* Kitchen section takes less space than villas */
+    border-left: 1px solid #eee; /* Visual separator */
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.kitchen-item {
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.kitchen-item img {
+    width: 100%;
+    height: auto;
+    max-height: 150px; /* Adjust height as needed */
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.kitchen-description {
+    font-size: 0.9em;
+    color: #555;
+    margin: 0;
+}
+
+/* Right Sidebar (Product Cards) */
+.right-sidebar {
+    flex: 1; /* Sidebar takes equal space to kitchen models */
+    border-left: 1px solid #eee; /* Visual separator */
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.discount-banner {
+    background-color: #fcf8e3; /* Light yellow background */
+    border: 1px solid #faebcc; /* Yellow border */
+    padding: 8px 15px;
+    text-align: center;
+    font-weight: bold;
+    color: #8a6d3b; /* Dark yellow text */
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.product-card {
+    border: 1px solid #eee;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.product-card img {
+    max-width: 80%; /* Adjust image size within card */
+    height: auto;
+    max-height: 120px;
+    object-fit: contain; /* Ensure full image is visible */
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.product-title {
+    font-weight: bold;
+    font-size: 1em;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.product-description {
+    font-size: 0.85em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.buy-button {
+    background-color: #007bff; /* Blue button, adjust as needed */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 992px) {
+    .content-section {
+        flex-direction: column; /* Stack sections vertically */
+    }
+
+    .villa-models,
+    .kitchen-models,
+    .right-sidebar {
+        border-left: none; /* Remove left border when stacked */
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%; /* Take full width */
+    }
+
+    .villa-models {
+        padding-right: 0; /* Adjust padding for stacking */
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .villa-sub-item {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .villa-sub-item img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="content-section">
+            <section class="villa-models">
+                <h3 class="section-title">MẪU BIỆT THỰ</h3>
+                <div class="villa-main-item">
+                    <img src="villa_main_image.jpg" alt="BTS Mẫu Nhà 2 Tầng Đẹp Nhất">
+                    <p class="villa-main-text">BTS MẪU NHÀ 2 TẦNG ĐẸP NHẤT 2017 - NHÌN XONG MUỐN Ở</p>
+                </div>
+
+                <div class="villa-list">
+                    <div class="villa-sub-item">
+                        <img src="villa_thumb_1.jpg" alt="Biệt thự thumbnail 1">
+                        <div class="villa-sub-description">
+                            <h4>BTS mẫu thiết kế nhà 2 tầng 3 phòng ngủ đẹp Cuộc sống...</h4>
+                            <p>Thiết kế cho Kanatak Homes</p>
+                            <p>Chi phí thấp và tiết kiệm năng lượng</p>
+                        </div>
+                    </div>
+                    <div class="villa-sub-item">
+                        <img src="villa_thumb_2.jpg" alt="Biệt thự thumbnail 2">
+                        <div class="villa-sub-description">
+                            <h4>BTS mẫu biệt thự đẹp nhất thiết...</h4>
+                            <p>Thiết kế cho Kanatak Homes</p>
+                            <p>Chi phí thấp và tiết kiệm năng lượng</p>
+                        </div>
+                    </div>
+                     <div class="villa-sub-item">
+                        <img src="villa_thumb_3.jpg" alt="Biệt thự thumbnail 3">
+                        <div class="villa-sub-description">
+                            <h4>BTS mẫu biệt thự đẹp phòng khách...</h4>
+                            <p>mới găn gói với thiên nhiên</p>
+                            <p>Trong chung cư và không gian nhỏ</p>
+                        </div>
+                    </div>
+                    <div class="villa-sub-item">
+                        <img src="villa_thumb_4.jpg" alt="Biệt thự thumbnail 4">
+                        <div class="villa-sub-description">
+                            <h4>Mẫu thiết kế nhà biệt thự đẹp 2 tầng</h4>
+                            <p>- Có ưu điểm</p>
+                            <p>Mẫu biệt thự có 2 tầng đẹp</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="kitchen-models">
+                <h3 class="section-title">MẪU NHÀ BẾP</h3>
+                <div class="kitchen-item">
+                    <img src="kitchen_image_1.jpg" alt="Kitchen design 1">
+                    <p class="kitchen-description">Nội thất nhà bếp bằng gỗ mang phong cách mộc mạc...</p>
+                </div>
+                <div class="kitchen-item">
+                    <img src="kitchen_image_2.jpg" alt="Kitchen design 2">
+                </div>
+            </section>
+
+            <aside class="right-sidebar">
+                <div class="discount-banner">
+                    <p>Có Mỉ Giảm Thêm Đến 15%</p>
+                </div>
+                <div class="product-card">
+                    <img src="product_bowl.jpg" alt="Product bowl">
+                    <p class="product-title">Khay Rút Tròn Multi One Độc Đáo</p>
+                    <p class="product-description">Kích thước: D339*35*27 cm</p>
+                    <button class="buy-button">MUA NGAY</button>
+                </div>
+                <div class="product-card">
+                    <img src="product_sneakers.jpg" alt="Product sneakers">
+                    <p class="product-title">Sneakers Bếp Hunter 2018</p>
+                    <button class="buy-button">MUA NGAY</button>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+</body>
+</html>

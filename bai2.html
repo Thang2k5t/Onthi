@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        nav{
+            height: 50px;
+            background-color: aqua;
+
+        }
+        nav ul{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            list-style-type: none;
+        }
+        nav>ul>li a{
+            text-decoration: none;
+            color: black;
+            display: inline-block;
+            line-height: 50px;
+            width: 150px;
+            text-align: center;
+        }
+        nav>ul>li a:hover{
+            background-color: azure;
+        }
+        .cha{
+            position: relative;
+        }
+        .con{
+            position: absolute;
+            background-color: aqua;
+            list-style-type: none;
+            display: none;
+            width:150px;
+	        left:0px;
+            top:50px;
+        }
+        .cha:hover .con{
+	        display:block;
+        }
+        .con>li>a{
+            text-decoration:none;
+            line-height:50px;
+            color: black;
+            border-top: 1px solid rgb(197, 230, 214);
+            display:inline-block;
+            width:150px;
+            height: 50px;
+        }
+        .con a:hover{
+             background-color: azure;
+        }
+        input{
+            width: 300px;
+            margin: 10px;
+        }
+        h1{
+            text-align: center;
+        }
+        section{
+            margin-top: 20px;
+        }
+        .anhchinh{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* Tạo 4 cột bằng nhau */
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        .anh{
+       
+        }
+        p{
+            color: #555;
+            font-size: 16px;
+            margin-top: 0;
+            margin-left: 50px;
+        }
+        .anh img{
+            border: 1px;
+        }
+        @media (max-width: 768px) {
+            .anhchinh {
+                grid-template-columns: repeat(2, 1fr); /* Chuyển thành 2 cột trên màn hình nhỏ */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .anhchinh {
+                grid-template-columns: 1fr; /* Chuyển thành 1 cột trên màn hình rất nhỏ */
+            }
+        }
+        footer{
+            background-color: black;
+            color: white;
+            height: 50px;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="tải xuống.jfif" width="100%" height="70px">
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#">Tất cả</a></li>
+            <li><a href="#">Miễn phí</a></li>
+            <li class="cha"><a href="#">Website Công ty</a>
+            <ul class="con">
+                <li><a href="#">Web thời trang</a></li>
+                <li><a href="#">Web thực phẩm</a></li>
+                <li><a href="#">Web đồ gia dụng</a></li>
+                <li><a href="#">Web ô tô xe máy</a></li>
+                <li><a href="#">Web thiết bị điện</a></li>
+            </ul></li>
+            <li><a href="#">Web bán hàng</a></li>
+            <input >
+        </ul>
+    </nav>
+    <section>
+        <h1>Mẫu Website Theo Nhành Hàng</h1>
+        <div class="anhchinh">
+        <div class="anh">
+            <img src="hóa.png">
+            <p>Thơi trang - trang sức</p>
+        </div>
+         <div class="anh">
+            <img src="hóa.png">
+            <p>Thực phẩm - Nhà hàng</p>
+        </div>
+         <div class="anh">
+            <img src="hóa.png">
+            <p>Đồ gia dụng - Sinh hoạt </p>
+        </div>
+         <div class="anh">
+            <img src="hóa.png">
+            <p>Nội thất - trang trí</p>
+        </div>
+         <div class="anh">
+            <img src="hóa.png">
+            <p>Công nghệ - ký thuật số</p>
+        </div>
+         <div class="anh">
+            <img src="hóa.png">
+            <p>Ô tô - xe máy</p>
+        </div>
+         <div class="anh">
+            <img src="hóa.png">
+            <p>Thiết bị điện</p>
+        </div>
+         <div class="anh">
+            <img src="hóa.png">
+            <p>Khác</p>
+        </div>
+        </div>
+    </section>
+    <footer>
+        <span>Copyright: WebShop.com.vn</span>
+    </footer>
+</body>
+</html>
