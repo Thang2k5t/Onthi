@@ -13,8 +13,8 @@
         }
         body {
             font-size: 16px;
-            color: #000066;
-            background-color: #00a69b;
+            /* color: #000066;
+            background-color: #00a69b; */
         }
         header {
             width: 100%;
@@ -186,6 +186,42 @@
     .buy-button:hover {
         background-color: #0056b3;
     }
+     /* Footer */
+        footer.bottom-bar {
+            background-color: #343a40;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9em;
+            border-radius: 0 0 5px 5px;
+            margin-top: 20px;
+        }
+
+        footer.bottom-bar .contact-info span {
+            margin-right: 20px;
+        }
+
+        footer.bottom-bar .search-footer {
+            display: flex;
+        }
+
+        footer.bottom-bar .search-footer input[type="text"] {
+            padding: 5px 10px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            margin-right: 5px;
+        }
+
+        footer.bottom-bar .search-footer button {
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -219,13 +255,6 @@
                 <div class="content-left-container">
                     <img src="hóa.png" class="img"></img>
                     <div class="post-list">
-                        <div class="post-item">
-                            <img src="hóa.png" class="post-item-img"></img>
-                            <p>
-                                BTS noi that thiet ke 2 tang 3 tang sang trong
-                                BTS noi that thiet ke 2 tang 3 tang sang trong
-                            </p>
-                        </div>
                         <div class="post-item">
                             <img src="hóa.png" class="post-item-img"></img>
                             <p>
@@ -289,5 +318,15 @@
             </div>
         </div>
     </section>
+     <footer class="bottom-bar">
+            <div class="contact-info">
+                <span>0835 000 355</span>
+                <span>xhieutb@gmail.com</span>
+            </div>
+            <div class="search-footer">
+                <input type="text" placeholder="Tìm kiếm...">
+                <button>Tìm</button>
+            </div>
+        </footer>
 </body>
 </html>

@@ -32,45 +32,45 @@
 
         .form-group {
             display: flex;
-            align-items: flex-start; 
+            align-items: flex-start; /* Căn trên cùng cho label và input/radio */
             margin-bottom: 20px;
         }
 
         .form-group label {
-            width: 150px; 
-            padding-top: 5px; 
+            width: 150px; /* Độ rộng cố định cho label */
+            padding-top: 5px; /* Căn chỉnh label với input text */
             margin-right: 15px;
             font-weight: bold;
             color: #555;
             text-align: right;
-            flex-shrink: 0; 
+            flex-shrink: 0; /* Ngăn label co lại */
         }
 
         .form-group .input-field {
-            flex-grow: 1;
-            display: flex; 
+            flex-grow: 1; /* Input sẽ mở rộng */
+            display: flex; /* Dùng flex cho các trường input để xử lý lỗi */
             flex-direction: column;
         }
 
         .form-group input[type="text"],
         .form-group input[type="password"],
         .form-group textarea {
-            width: 100%; 
+            width: 100%; /* Chiếm toàn bộ không gian còn lại */
             padding: 10px 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1em;
-            box-sizing: border-box; 
+            box-sizing: border-box; /* Đảm bảo padding không làm tăng width */
         }
 
         .form-group textarea {
-            resize: vertical; 
+            resize: vertical; /* Cho phép thay đổi kích thước theo chiều dọc */
             min-height: 80px;
         }
 
         .radio-group {
             align-items: center;
-            gap: 5px; 
+            gap: 5px; /* Khoảng cách giữa các radio button */
         }
 
         .radio-group input[type="radio"] {
@@ -81,7 +81,7 @@
             color: red;
             font-size: 0.85em;
             margin-top: 5px;
-            display: none; 
+            display: none; /* Mặc định ẩn */
         }
 
         .buttons {
@@ -106,7 +106,7 @@
         }
 
         .buttons button#dangKyBtn {
-            background-color: #28a745; 
+            background-color: #28a745; /* Xanh lá cây */
             color: white;
         }
 
@@ -115,7 +115,7 @@
         }
 
         .buttons button#huyBoBtn {
-            background-color: #dc3545; 
+            background-color: #dc3545; /* Đỏ */
             color: white;
         }
 
@@ -189,22 +189,26 @@
             const phoneInput = document.getElementById('phone');
             const aboutInput = document.getElementById('about');
 
+            // Lấy các thẻ span dùng để hiển thị lỗi
             const usernameError = document.getElementById('usernameError');
             const passwordError = document.getElementById('passwordError');
             const genderError = document.getElementById('genderError');
             const phoneError = document.getElementById('phoneError');
             const aboutError = document.getElementById('aboutError');
 
+            // Hàm hiển thị lỗi
             function showError(element, message) {
                 element.textContent = message;
                 element.style.display = 'block';
             }
 
+            // Hàm ẩn lỗi
             function hideError(element) {
                 element.textContent = '';
                 element.style.display = 'none';
             }
 
+            // Hàm kiểm tra trường rỗng
             function checkRequired(inputElement, errorElement, fieldName) {
                 if (inputElement.value.trim() === '') {
                     showError(errorElement, `${fieldName} không được để trống.`);
@@ -214,6 +218,7 @@
                 return true;
             }
 
+            // Hàm kiểm tra radio button (giới tính)
             function checkGender(radioElements, errorElement) {
                 let isChecked = false;
                 for (let i = 0; i < radioElements.length; i++) {
@@ -230,13 +235,14 @@
                 return true;
             }
 
+            // Hàm kiểm tra định dạng số điện thoại
             function checkPhone(inputElement, errorElement) {
                 const phoneValue = inputElement.value.trim();
-                if (phoneValue === '') { 
+                if (phoneValue === '') { // Yêu cầu không được để trống
                     showError(errorElement, 'Số điện thoại không được để trống.');
                     return false;
                 }
-
+                // Regex: chỉ chấp nhận số, dấu chấm ".", và dấu gạch ngang "-"
                 const phoneRegex = /^[0-9.-]+$/;
                 if (!phoneRegex.test(phoneValue)) {
                     showError(errorElement, 'Số điện thoại chỉ được chứa số, dấu chấm và dấu gạch ngang.');
@@ -246,9 +252,11 @@
                 return true;
             }
 
+            // Xử lý sự kiện submit form
             form.addEventListener('submit', function(event) {
-                event.preventDefault(); 
+                event.preventDefault(); // Ngăn chặn form submit mặc định (tải lại trang)
 
+                // Thực hiện kiểm tra cho từng trường
                 let isValid = true;
 
                 isValid = checkRequired(usernameInput, usernameError, 'Tên đăng nhập') && isValid;
@@ -257,36 +265,52 @@
                 isValid = checkPhone(phoneInput, phoneError) && isValid;
                 isValid = checkRequired(aboutInput, aboutError, 'Giới thiệu bản thân') && isValid;
 
+                // Nếu tất cả các trường đều hợp lệ
                 if (isValid) {
                     alert('Đăng ký thành công!');
-                    form.reset();
+                    // Bạn có thể thêm code gửi dữ liệu form đi ở đây
+                    // Ví dụ: form.submit(); // để gửi form thực sự
+                    // Hoặc: console.log("Form data:", {
+                    //     username: usernameInput.value,
+                    //     password: passwordInput.value,
+                    //     gender: document.querySelector('input[name="gender"]:checked')?.value,
+                    //     phone: phoneInput.value,
+                    //     about: aboutInput.value
+                    // });
+                    form.reset(); // Reset form sau khi đăng ký thành công
+                    // Đảm bảo ẩn tất cả các thông báo lỗi sau khi reset
                     hideError(usernameError);
                     hideError(passwordError);
                     hideError(genderError);
                     hideError(phoneError);
                     hideError(aboutError);
+
                 } else {
                     alert('Vui lòng kiểm tra lại thông tin đăng ký.');
                 }
             });
 
+            // Xử lý sự kiện khi click nút "Hủy bỏ" (type="reset" đã tự làm sạch form)
+            // Tuy nhiên, chúng ta cần ẩn các thông báo lỗi nếu có
             const huyBoBtn = document.getElementById('huyBoBtn');
             huyBoBtn.addEventListener('click', function() {
-
+                // Đặt timeout nhỏ để cho trình duyệt có thời gian reset form trước khi ẩn lỗi
                 setTimeout(() => {
                     hideError(usernameError);
                     hideError(passwordError);
                     hideError(genderError);
                     hideError(phoneError);
                     hideError(aboutError);
-                }, 50); 
+                }, 50); // Khoảng thời gian nhỏ
             });
 
+            // (Tùy chọn) Kiểm tra lỗi khi người dùng thay đổi input
             usernameInput.addEventListener('input', () => checkRequired(usernameInput, usernameError, 'Tên đăng nhập'));
             passwordInput.addEventListener('input', () => checkRequired(passwordInput, passwordError, 'Mật khẩu'));
             phoneInput.addEventListener('input', () => checkPhone(phoneInput, phoneError));
             aboutInput.addEventListener('input', () => checkRequired(aboutInput, aboutError, 'Giới thiệu bản thân'));
             
+            // Đối với radio buttons, thường kiểm tra khi click vào bất kỳ radio nào trong nhóm
             for (let i = 0; i < genderRadios.length; i++) {
                 genderRadios[i].addEventListener('change', () => checkGender(genderRadios, genderError));
             }

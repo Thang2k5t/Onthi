@@ -20,7 +20,7 @@
             padding: 30px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 450px; 
+            width: 450px; /* Tăng chiều rộng để vừa với layout */
         }
 
         .form-group {
@@ -30,25 +30,25 @@
         }
 
         .form-group label {
-            width: 150px; 
-            margin-right: 15px; 
+            width: 150px; /* Độ rộng cố định cho label */
+            margin-right: 15px; /* Khoảng cách giữa label và input */
             font-weight: bold;
-            text-align: right;
+            text-align: right; /* Căn phải label */
         }
 
         .form-group input[type="text"] {
-            flex-grow: 1; 
+            flex-grow: 1; /* Input sẽ tự mở rộng */
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1em;
-            max-width: 250px; 
+            max-width: 250px; /* Giới hạn chiều rộng input để cân đối */
         }
 
         .buttons {
             display: flex;
-            justify-content: center; 
-            gap: 15px; 
+            justify-content: center; /* Căn giữa các nút */
+            gap: 15px; /* Khoảng cách giữa các nút */
             margin-top: 25px;
         }
 
@@ -105,17 +105,24 @@
             const huyBoBtn = document.getElementById('huyBoBtn');
 
             timBtn.addEventListener('click', function() {
-                const chuoi = chuoiInput.value.trim(); 
+                const chuoi = chuoiInput.value.trim(); // Lấy giá trị chuỗi và loại bỏ khoảng trắng thừa ở đầu/cuối
 
+                // Kiểm tra độ dài chuỗi
                 if (chuoi.length > 255) {
                     alert('Chuỗi không được vượt quá 255 ký tự.');
                     return;
                 }
+
+                // Tách chuỗi thành các từ. Sử dụng regex để xử lý nhiều khoảng trắng và dấu câu
+                // Regex: /\s+/ khớp với một hoặc nhiều khoảng trắng
+                // .filter(word => word.length > 0) để loại bỏ các chuỗi rỗng nếu có nhiều khoảng trắng
                 const words = chuoi.split(/\s+/).filter(word => word.length > 0);
 
                 let count = 0;
                 for (let i = 0; i < words.length; i++) {
-                    const cleanedWord = words[i].replace(/[.,!?;:()]/g, ''); 
+                    // Loại bỏ các ký tự không phải chữ cái khỏi từ trước khi kiểm tra độ dài
+                    // Ví dụ: "hello," sẽ trở thành "hello"
+                    const cleanedWord = words[i].replace(/[.,!?;:()]/g, ''); // Loại bỏ dấu câu
                     if (cleanedWord.length === 4) {
                         count++;
                     }
@@ -124,10 +131,15 @@
             });
 
             huyBoBtn.addEventListener('click', function() {
-                chuoiInput.value = ''; 
-                ketQuaInput.value = ''; 
+                chuoiInput.value = ''; // Xóa nội dung ô nhập chuỗi
+                ketQuaInput.value = ''; // Xóa nội dung ô kết quả
             });
 
+            // Thêm sự kiện 'keyup' cho chuoiInput để tính toán realtime (tùy chọn)
+            // chuoiInput.addEventListener('keyup', function() {
+            //     // Tự động gọi hàm xử lý khi người dùng gõ phím
+            //     timBtn.click();
+            // });
         });
     </script>
 </body>

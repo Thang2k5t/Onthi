@@ -15,17 +15,73 @@
             color: #330066;
             /* background: #66FF66; */
         }
+        .container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border-radius: 5px;
+            overflow: hidden; 
+        }
+
         header {
-            height: 60px;
-            width: 100%;
-            background-color: tomato;
-            text-align: center;
-            line-height: 60px;
+            background-color: #c0bcbc; 
+            padding: 10px 20px;
+            border-bottom: 1px solid #f1e1e1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .logo-info {
+            display: flex;
+            align-items: center;
+        }
+
+        header .logo-info img {
+            height: 70px; /* Kích thước logo */
+            margin-right: 15px;
+        }
+
+        header .info {
+            font-size: 0.9em;
+            color: #555;
+        }
+
+        header .info p {
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        header .search-bar {
+            display: flex;
+            align-items: center;
+        }
+
+        header .search-bar input[type="text"] {
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 5px;
+            width: 250px;
+        }
+
+        header .search-bar button {
+            padding: 8px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        header .search-bar button:hover {
+            background-color: #0056b3;
         }
         section {
             display: flex;
         }
         nav {
+            margin-top: 20px;
             width: 20%;
         }
         .list {
@@ -62,39 +118,216 @@
             border-bottom: 1px solid #fff;
         }
 
-        .content-list {
-            width: 80%;
+        /* Main Content Layout */
+        .content-area {
             display: flex;
-            align-items: center;
-            justify-content:center;
-            flex-direction: row;
-            flex-wrap: wrap;
+            padding: 20px;
         }
-        .content-item {
-            width: 25%;
-            display: flex;
-            align-items: center;
-            justify-content:center;
-            flex-direction: column;
-            margin: 20px;
-            border: 1px solid #000;
-        }
-        .content-img {
+
+        .sidebar-left {
             width: 250px;
-            height: 220px;
+            padding-right: 20px;
+            border-right: 1px solid #eee;
         }
 
-        .content-title {
-
+        .sidebar-left .menu-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #555;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #eee;
         }
-        .contemt-new-pirce {
-            color: red;
+
+        .sidebar-left ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-left ul li a {
+            display: block;
+            padding: 8px 0;
+            text-decoration: none;
+            color: #555;
+            transition: color 0.2s ease;
+        }
+
+        .sidebar-left ul li a:hover {
+            color: #007bff;
+        }
+
+        .main-content {
+            flex-grow: 1;
+            padding: 0 20px;
+            margin-top: 20px;
+        }
+
+        .sidebar-right {
+            width: 250px;
+            padding-left: 20px;
+            border-left: 1px solid #eee;
+        }
+
+        .sidebar-right .widget {
+            background-color: #f7f7f7;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .sidebar-right .widget-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+            text-transform: uppercase;
+            border-bottom: 1px dashed #ddd;
+            padding-bottom: 8px;
+        }
+
+        .sidebar-right .widget ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .sidebar-right .widget ul li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .sidebar-right .widget ul li img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            margin-right: 10px;
+            border-radius: 3px;
+        }
+
+        .sidebar-right .widget ul li .text-content {
+            flex-grow: 1;
+            font-size: 0.9em;
+        }
+        .sidebar-right .widget ul li .text-content a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        .sidebar-right .widget ul li .text-content span {
+            display: block;
+            color: #777;
+            font-size: 0.85em;
+        }
+
+        /* Product Grid */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* 3 cột sản phẩm */
+            gap: 20px;
+        }
+
+        .product-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #fff;
+            text-align: center;
+            padding-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .product-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-item img {
+            width: 100%;
+            height: 200px; /* Fixed height for product images */
+            object-fit: cover; /* Crop images to fit */
+            display: block; /* Remove extra space below image */
+            margin-bottom: 10px;
+        }
+
+        .product-item h3 {
+            font-size: 1.1em;
+            margin: 0 10px 5px;
+            color: #007bff;
+            min-height: 40px; /* Đảm bảo chiều cao đồng nhất */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-item .description {
+            font-size: 0.85em;
+            color: #666;
+            margin: 0 10px 10px;
+            min-height: 35px; /* Đảm bảo chiều cao đồng nhất */
+        }
+
+        .product-item .price {
+            font-size: 1.2em;
+            color: #dc3545; /* Màu đỏ cho giá */
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-item .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            padding: 0 10px;
+        }
+
+        .product-item .actions button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9em;
+            flex: 1; /* Để các nút có cùng chiều rộng */
+        }
+
+        .product-item .actions .add-to-cart {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .product-item .actions .add-to-cart:hover {
+            background-color: #218838;
+        }
+
+        .product-item .actions .view-detail {
+            background-color: #6c757d;
+            color: white;
+        }
+
+        .product-item .actions .view-detail:hover {
+            background-color: #5a6268;
         }
     </style>
 
 </head>
 <body>
-    <header>Xưởng sản xuất đồ gỗ <strong>HƯỜNG NGÂN</strong></header>
+    <div class="container">
+        <header>
+            <div class="logo-info">
+                <img src="logo.png" alt="HN288 Logo">
+                <div class="info">
+                    <p>XƯỞNG SẢN XUẤT ĐỒ GỖ <strong>HƯỜNG NGÂN</strong></p>
+                    <p>Địa chỉ: 288 - Quang Trung - Hà Đông - Hà Nội</p>
+                    <p>Cơ sở 2: Số 2 Vạn Phúc - Hà Đông - Hà Nội</p>
+                </div>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Tìm kiếm sản phẩm...">
+                <button>Tìm kiếm</button>
+            </div>
+        </header>
     <section>
         <nav>
             <ul class="list">
@@ -116,56 +349,130 @@
                 <li class="item"><a href="#" class="link">Nội thất phòng khách</a></li>
             </ul>
         </nav>
-        <div class="content-list">
-            <div class="content-item">
-                    <img src="hóa.png" class="content-img">
-                <p class="content-title">Tu noi that sang trong bac nhat ha noi</p>
-                <p>
-                    <span class="contemt-old-pirce">1.000.000d</span>
-                    <span class="contemt-new-pirce">99.000d</span>
-                </p>
-            </div>
-            <div class="content-item">
-                    <img src="hóa.png" class="content-img">
-                <p class="content-title">Tu noi that sang trong bac nhat ha noi</p>
-                <p>
-                    <span class="contemt-old-pirce">1.000.000d</span>
-                    <span class="contemt-new-pirce">99.000d</span>
-                </p>
-            </div>
-            <div class="content-item">
-                    <img src="hóa.png" class="content-img">
-                <p class="content-title">Tu noi that sang trong bac nhat ha noi</p>
-                <p>
-                    <span class="contemt-old-pirce">1.000.000d</span>
-                    <span class="contemt-new-pirce">99.000d</span>
-                </p>
-            </div>
-            <div class="content-item">
-                    <img src="hóa.png" class="content-img">
-                <p class="content-title">Tu noi that sang trong bac nhat ha noi</p>
-                <p>
-                    <span class="contemt-old-pirce">1.000.000d</span>
-                    <span class="contemt-new-pirce">99.000d</span>
-                </p>
-            </div>
-            <div class="content-item">
-                    <img src="hóa.png" class="content-img">
-                <p class="content-title">Tu noi that sang trong bac nhat ha noi</p>
-                <p>
-                    <span class="contemt-old-pirce">1.000.000d</span>
-                    <span class="contemt-new-pirce">99.000d</span>
-                </p>
-            </div>
-            <div class="content-item">
-                    <img src="hóa.png" class="content-img">
-                <p class="content-title">Tu noi that sang trong bac nhat ha noi</p>
-                <p>
-                    <span class="contemt-old-pirce">1.000.000d</span>
-                    <span class="contemt-new-pirce">99.000d</span>
-                </p>
-            </div>
-        </div>
-    </section>
+                    <main class="main-content">
+                <div class="product-grid">
+                    <div class="product-item">
+                        <img src="hóa.png" alt="Giường ngủ kiểu bán đệm">
+                        <h3>Giường ngủ kiểu bán đệm</h3>
+                        <p class="description">Chất liệu: gỗ MDF cao cấp</p>
+                        <p class="price">Giá bán: 18.000.000 đ</p>
+                        <div class="actions">
+                            <button class="add-to-cart">Đặt mua</button>
+                            <button class="view-detail">Xem chi tiết</button>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="hóa.png" alt="Giường ngủ kiểu hiện đại">
+                        <h3>Giường ngủ kiểu hiện đại</h3>
+                        <p class="description">Chất liệu: gỗ xoan đào tự nhiên</p>
+                        <p class="price">Giá bán: 15.000.000 đ</p>
+                        <div class="actions">
+                            <button class="add-to-cart">Đặt mua</button>
+                            <button class="view-detail">Xem chi tiết</button>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="hóa.png" alt="Tủ quần áo gỗ tự nhiên">
+                        <h3>Tủ quần áo gỗ tự nhiên</h3>
+                        <p class="description">Thiết kế 4 cánh, hiện đại</p>
+                        <p class="price">Giá bán: 10.500.000 đ</p>
+                        <div class="actions">
+                            <button class="add-to-cart">Đặt mua</button>
+                            <button class="view-detail">Xem chi tiết</button>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="hóa.png" alt="Giường, Tủ, Bàn phòng ngủ">
+                        <h3>Giường, Tủ, Bàn phòng ngủ</h3>
+                        <p class="description">Bộ phòng ngủ đa năng</p>
+                        <p class="price">Giá bán: 19.000.000 đ</p>
+                        <div class="actions">
+                            <button class="add-to-cart">Đặt mua</button>
+                            <button class="view-detail">Xem chi tiết</button>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="hóa.png" alt="Bộ phòng ngủ phong cách Châu Âu">
+                        <h3>Bộ phòng ngủ phong cách Châu Âu</h3>
+                        <p class="description">Thiết kế sang trọng, hiện đại</p>
+                        <p class="price">Giá bán: 25.000.000 đ</p>
+                        <div class="actions">
+                            <button class="add-to-cart">Đặt mua</button>
+                            <button class="view-detail">Xem chi tiết</button>
+                        </div>
+                    </div>
+
+                    <div class="product-item">
+                        <img src="hóa.png" alt="Giường gỗ xoan đào">
+                        <h3>Giường gỗ xoan đào</h3>
+                        <p class="description">Chất liệu: gỗ xoan đào bền đẹp</p>
+                        <p class="price">Giá bán: 9.900.000 đ</p>
+                        <div class="actions">
+                            <button class="add-to-cart">Đặt mua</button>
+                            <button class="view-detail">Xem chi tiết</button>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="sidebar-right">
+                <div class="widget">
+                    <div class="widget-title">HƯƠNG NGÂN ĐỒ GỖ</div>
+                    <ul>
+                        <li>
+                            <img src="hóa.png" alt="Khuyến mãi">
+                            <div class="text-content">
+                                <a href="#">Nội thất gỗ cho phòng khách</a>
+                                <span>Giảm giá 10%</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="hóa.png" alt="Mẫu mới">
+                            <div class="text-content">
+                                <a href="#">Nội thất gỗ cho phòng ngủ</a>
+                                <span>Mẫu mới về hàng</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="hóa.png" alt="Hot">
+                            <div class="text-content">
+                                <a href="#">Nội thất gỗ cho phòng bếp</a>
+                                <span>Giảm giá đặc biệt</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+               <div class="widget">
+                    <div class="widget-title">TIN TỨC MỚI</div>
+                    <ul>
+                        <li>
+                            <img src="hóa.png" alt="Tin tức 1">
+                            <div class="text-content">
+                                <a href="#">5 mẫu tủ giày gỗ tự nhiên đẹp</a>
+                                <span>Ngày đăng: 15/05/2025</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="hóa.png" alt="Tin tức 2">
+                            <div class="text-content">
+                                <a href="#">Lựa chọn bàn ăn phù hợp không gian bếp</a>
+                                <span>Ngày đăng: 10/05/2025</span>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="hóa.png" alt="Tin tức 3">
+                            <div class="text-content">
+                                <a href="#">Các loại gỗ tự nhiên bền đẹp cho nội thất</a>
+                                <span>Ngày đăng: 05/05/2025</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+        </section>
 </body>
 </html>

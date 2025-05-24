@@ -1,104 +1,141 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ma de 9660 - cau 2</title>
+    <title>Tính số ngày trong tháng</title>
     <style>
-        input {
-            margin-left: 30px;
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: inline-block;
+            width: 80px; /* Căn chỉnh các label */
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        .input-group input[type="number"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            width: 100px; /* Điều chỉnh chiều rộng ô input */
+            text-align: center;
+        }
+        .input-group input#year {
+            width: 150px; /* Ô năm rộng hơn */
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
         }
     </style>
 </head>
 <body>
-    <label for="month">Tháng</label>
-    <input type="number" id="month">
-    <br>
-    <br>
-
-    <label for="year">Năm</label>
-    <input type="number" id="year">
-    <br>
-    <br>
-
-    <label>Số ngày</label>
-    <input type="text" id="day" readonly>
-    <br>
-
-    <button onclick="show()">Hiển thị số ngày của tháng</button>
-
+    <div class="container">
+        <h2>Tính số ngày trong tháng</h2>
+        <div class="input-group">
+            <label for="month">Tháng:</label>
+            <input type="number" id="month" min="1" max="12" placeholder="Nhập tháng">
+            <label for="year">Năm:</label>
+            <input type="number" id="year" min="1" placeholder="Nhập năm">
+        </div>
+        <div class="input-group">
+            <label for="dayCount">Số ngày:</label>
+            <input type="text" id="dayCount" readonly placeholder="Hiển thị số ngày của tháng">
+        </div>
+        <button onclick="calculateDaysInMonth()">Hiển thị số ngày của tháng</button>
+        <div id="result"></div>
+    </div>
 
     <script>
-        function show() {
-            var month = document.getElementById('month')
-            var year = document.getElementById('year')
-            
-            var day
-            if (!month.value) {
-                alert('Yeu cau nhap thang')
-                month.focus()
-                return;
-            } else if(parseInt(month.value) < 0 || parseInt(month.value) >12) {
-                alert('Thang nhap khong hop le')
-                month.focus()
-                return;
-            }
-            if (!year.value) {
-                alert('Yeu cau nhap nam')
-                year.focus()
-                return;
-            } else if (parseInt(year.value) < 0) {
-                alert('Nam nhap khong hop le')
-                year.focus()
+        function isLeapYear(year) {
+            // Năm nhuận là năm chia hết cho 4
+            // Nhưng không chia hết cho 100 trừ khi chia hết cho 400
+            return (year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0);
+        }
+
+        function calculateDaysInMonth() {
+            const monthInput = document.getElementById('month');
+            const yearInput = document.getElementById('year');
+            const dayCountInput = document.getElementById('dayCount');
+            const resultDiv = document.getElementById('result');
+
+            const month = parseInt(monthInput.value);
+            const year = parseInt(yearInput.value);
+
+            if (isNaN(month) || isNaN(year) || month < 1 || month > 12) {
+                resultDiv.textContent = "Vui lòng nhập tháng hợp lệ (1-12) và năm.";
+                dayCountInput.value = "";
                 return;
             }
 
-            switch(parseInt(month.value)) {
-                case 1:
-                    day = 31
-                    break
-                case 2:
-                    if(parseInt(year.value) % 4 == 0) {
-                        day = 29
-                    } else {
-                        day = 28
-                    } 
-                    break
+            let days;
+
+            switch (month) {
+                case 1:  
                 case 3:
-                    day = 31
-                    break
-                case 4:
-                    day = 30
-                    break
                 case 5:
-                    day = 31
-                    break
-                case 6:
-                    day = 30
-                    break
                 case 7:
-                    day = 31
-                    break
                 case 8:
-                    day = 31
-                    break
-                case 9:
-                    day = 30
-                    break
                 case 10:
-                    day = 31
-                    break
-                case 11:
-                    day = 30
-                    break
                 case 12:
-                    day = 31
-                    break
+                    //"Nếu là tháng 1, 3, 5, 7, 8, 10, 12 thì có 30 ngày"
+                    days = 30;
+                    break;
+                case 4: // Tháng 4, 6, 9, 11 ( 31 ngày)
+                case 6:
+                case 9:
+                case 11:
+                    days = 31;
+                    break;
+                case 2: 
+                    if (isLeapYear(year)) {
+                        days = 29;
+                    } else {
+                        days = 28;
+                    }
+                    break;
+                default:
+                    resultDiv.textContent = "Tháng không hợp lệ.";
+                    dayCountInput.value = "";
+                    return;
             }
 
-            document.getElementById('day').value = day
+            dayCountInput.value = days;
+            resultDiv.textContent = `Tháng ${month} năm ${year} có ${days} ngày.`;
         }
     </script>
 </body>

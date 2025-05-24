@@ -14,63 +14,74 @@
             min-height: 100vh;
             margin: 0;
         }
+
         .form-container {
             background-color: white;
             padding: 30px 40px;
             border-radius: 8px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            width: 500px; 
+            width: 500px; /* Tăng chiều rộng để phù hợp với nội dung */
         }
+
         h2 {
             text-align: center;
             color: #333;
             margin-bottom: 25px;
             font-size: 1.8em;
-            display: none; 
+            display: none; /* Ẩn tiêu đề h2 nếu không có trong ảnh mẫu */
         }
+
         .form-group {
             display: flex;
-            align-items: flex-start; 
+            align-items: flex-start; /* Căn trên cùng cho label và input/textarea */
             margin-bottom: 20px;
         }
+
         .form-group label {
-            padding-top: 8px; 
+            width: 150px; /* Độ rộng cố định cho label */
+            padding-top: 8px; /* Căn chỉnh label với input text */
             margin-right: 15px;
             font-weight: bold;
             color: #555;
             text-align: right;
-            flex-shrink: 0; 
+            flex-shrink: 0; /* Ngăn label co lại */
         }
+
         .form-group .input-field {
-            flex-grow: 1; 
-            display: flex;
+            flex-grow: 1; /* Input sẽ mở rộng */
+            display: flex; /* Dùng flex cho các trường input để xử lý lỗi */
             flex-direction: column;
         }
+
         .form-group input[type="text"],
         .form-group textarea {
-            width: 100%; 
+            width: 100%; /* Chiếm toàn bộ không gian còn lại */
             padding: 10px 12px;
             border: 1px solid #ccc;
             border-radius: 4px;
             font-size: 1em;
-            box-sizing: border-box; 
+            box-sizing: border-box; /* Đảm bảo padding không làm tăng width */
         }
+
         .form-group textarea {
-            resize: vertical; 
-            min-height: 120px; 
+            resize: vertical; /* Cho phép thay đổi kích thước theo chiều dọc */
+            min-height: 120px; /* Chiều cao tối thiểu cho nội dung */
         }
+
         .error-message {
             color: red;
             font-size: 0.85em;
             margin-top: 5px;
-            display: none; 
+            display: none; /* Mặc định ẩn */
         }
+
         .buttons {
             display: flex;
             justify-content: center;
             gap: 20px;
             margin-top: 30px;
         }
+
         .buttons button {
             padding: 12px 30px;
             border: none;
@@ -80,20 +91,25 @@
             font-weight: bold;
             transition: background-color 0.2s ease, transform 0.1s ease;
         }
+
         .buttons button:active {
             transform: translateY(1px);
         }
+
         .buttons button#guiDiBtn {
-            background-color: #007bff; 
+            background-color: #007bff; /* Màu xanh dương */
             color: white;
         }
+
         .buttons button#guiDiBtn:hover {
             background-color: #0056b3;
         }
+
         .buttons button#huyBoBtn {
-            background-color: #6c757d; 
+            background-color: #6c757d; /* Màu xám */
             color: white;
         }
+
         .buttons button#huyBoBtn:hover {
             background-color: #5a6268;
         }
@@ -109,6 +125,7 @@
                     <span class="error-message" id="tieuDeError"></span>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="nguoiNhan">Người nhận:</label>
                 <div class="input-field">
@@ -116,6 +133,7 @@
                     <span class="error-message" id="nguoiNhanError"></span>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="fileDinhKem">File đính kèm:</label>
                 <div class="input-field">
@@ -123,6 +141,7 @@
                     <span class="error-message" id="fileDinhKemError"></span>
                 </div>
             </div>
+
             <div class="form-group">
                 <label for="noiDung">Nội dung:</label>
                 <div class="input-field">
@@ -130,12 +149,14 @@
                     <span class="error-message" id="noiDungError"></span>
                 </div>
             </div>
+
             <div class="buttons">
                 <button type="submit" id="guiDiBtn">Gửi đi</button>
                 <button type="reset" id="huyBoBtn">Hủy bỏ</button>
             </div>
         </form>
     </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const form = document.getElementById('contentForm');
@@ -144,20 +165,25 @@
             const fileDinhKemInput = document.getElementById('fileDinhKem');
             const noiDungInput = document.getElementById('noiDung');
 
-            //các thẻ span dùng để hiển thị lỗi
+            // Lấy các thẻ span dùng để hiển thị lỗi
             const tieuDeError = document.getElementById('tieuDeError');
             const nguoiNhanError = document.getElementById('nguoiNhanError');
             const fileDinhKemError = document.getElementById('fileDinhKemError');
             const noiDungError = document.getElementById('noiDungError');
 
+            // Hàm hiển thị lỗi
             function showError(element, message) {
                 element.textContent = message;
                 element.style.display = 'block';
             }
+
+            // Hàm ẩn lỗi
             function hideError(element) {
                 element.textContent = '';
                 element.style.display = 'none';
             }
+
+            // Hàm kiểm tra trường rỗng
             function checkRequired(inputElement, errorElement, fieldName) {
                 if (inputElement.value.trim() === '') {
                     showError(errorElement, `${fieldName} không được để trống.`);
@@ -166,12 +192,15 @@
                 hideError(errorElement);
                 return true;
             }
+
+            // Hàm kiểm tra định dạng "File đính kèm"
             function checkFileDinhKem(inputElement, errorElement) {
                 const fileValue = inputElement.value.trim();
-                if (fileValue === '') { 
+                if (fileValue === '') { // Yêu cầu không được để trống
                     showError(errorElement, 'File đính kèm không được để trống.');
                     return false;
                 }
+                // Regex: chỉ chấp nhận chữ cái (a-z, A-Z), dấu hai chấm ":", dấu gạch chéo "/", và dấu gạch ngang "-"
                 const fileRegex = /^[a-zA-Z:\/\-]+$/;
                 if (!fileRegex.test(fileValue)) {
                     showError(errorElement, 'File đính kèm chỉ được chứa chữ cái, dấu hai chấm ":", dấu gạch chéo "/" và dấu gạch ngang "-".');
@@ -180,34 +209,55 @@
                 hideError(errorElement);
                 return true;
             }
+
+            // Xử lý sự kiện submit form
             form.addEventListener('submit', function(event) {
-                event.preventDefault();
+                event.preventDefault(); // Ngăn chặn form submit mặc định
+
+                // Thực hiện kiểm tra cho từng trường
                 let isValid = true;
+
                 isValid = checkRequired(tieuDeInput, tieuDeError, 'Tiêu đề') && isValid;
                 isValid = checkRequired(nguoiNhanInput, nguoiNhanError, 'Người nhận') && isValid;
-                isValid = checkFileDinhKem(fileDinhKemInput, fileDinhKemError) && isValid; 
+                isValid = checkFileDinhKem(fileDinhKemInput, fileDinhKemError) && isValid; // Kiểm tra định dạng đặc biệt
                 isValid = checkRequired(noiDungInput, noiDungError, 'Nội dung') && isValid;
 
+                // Nếu tất cả các trường đều hợp lệ
                 if (isValid) {
                     alert('Nội dung đã được gửi đi thành công!');
-                    form.reset(); 
+                    // Bạn có thể thêm code gửi dữ liệu form đi ở đây
+                    // Ví dụ: form.submit(); // để gửi form thực sự
+                    // Hoặc: console.log("Form data:", {
+                    //     tieuDe: tieuDeInput.value,
+                    //     nguoiNhan: nguoiNhanInput.value,
+                    //     fileDinhKem: fileDinhKemInput.value,
+                    //     noiDung: noiDungInput.value
+                    // });
+                    form.reset(); // Reset form sau khi gửi thành công
+                    // Đảm bảo ẩn tất cả các thông báo lỗi sau khi reset
                     hideError(tieuDeError);
                     hideError(nguoiNhanError);
                     hideError(fileDinhKemError);
                     hideError(noiDungError);
+
                 } else {
                     alert('Vui lòng kiểm tra lại thông tin trước khi gửi.');
                 }
             });
+
+            // Xử lý sự kiện khi click nút "Hủy bỏ"
             const huyBoBtn = document.getElementById('huyBoBtn');
             huyBoBtn.addEventListener('click', function() {
+                // Đặt timeout nhỏ để cho trình duyệt có thời gian reset form trước khi ẩn lỗi
                 setTimeout(() => {
                     hideError(tieuDeError);
                     hideError(nguoiNhanError);
                     hideError(fileDinhKemError);
                     hideError(noiDungError);
-                }, 50); 
+                }, 50); // Khoảng thời gian nhỏ
             });
+
+            // (Tùy chọn) Kiểm tra lỗi khi người dùng thay đổi input
             tieuDeInput.addEventListener('input', () => checkRequired(tieuDeInput, tieuDeError, 'Tiêu đề'));
             nguoiNhanInput.addEventListener('input', () => checkRequired(nguoiNhanInput, nguoiNhanError, 'Người nhận'));
             fileDinhKemInput.addEventListener('input', () => checkFileDinhKem(fileDinhKemInput, fileDinhKemError));
