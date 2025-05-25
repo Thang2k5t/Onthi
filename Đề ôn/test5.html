@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>de 04</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        header {
+            height: 50px;
+            width: 100%;
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 50px;
+            text-align: center;
+        }
+        .main {
+            display: flex;
+            flex-direction: row;
+        }
+        nav {
+            width: 20%;
+            display: flex;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .menu {
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            width: 100%;
+        }
+        .menu li {
+            background-color: rgb(29, 162, 97);
+            padding: 10px 0;
+            position: relative;
+            border-bottom: 1px solid white;
+            padding-left: 32px;
+        }
+        .menu li:hover {
+            background-color: red;
+            color: yellow;
+        }
+        .menu li:hover >  a {
+            color: yellow;
+        }
+        .menu li a {
+            text-decoration: none;
+            color: white;
+        }
+        .submenu {
+            position: absolute;
+            top: 0;
+            left: 100%;
+            display: none;
+            width: 100%;
+            list-style: none;
+            z-index: 111;
+            margin-left: 2px;
+        }
+        .menu li:hover .submenu {
+            display: block;
+        }
+        section {
+            width: 80%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form {
+            width: 80%;
+            background-color: blue;
+            /* width: 800px;
+            height: 200px; */
+            color: white;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+        .p1 {
+            margin-right: 90px;
+        }
+        footer {
+            height: 50px;
+            width: 100%;
+            background-color: blue;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            line-height: 50px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+<body>
+    <header>BÀI KIỂM TRA SỐ 2</header>
+    <div class="main">
+        <nav>
+            <ul class="menu">
+                <li><a href="#">Lập trình Java</a></li>
+                <li><a href="#">
+                    Thiết kế Web
+                    <ul class="submenu">
+                        <li><a href="#">Tài liệu HTML</a></li>
+                        <li><a href="#">Tài liệu CSS</a></li>
+                        <li><a href="#">Tài liệu Javascript</a></li>
+                    </ul>
+                </a></li>
+                <li><a href="#">Lập trình C#</a></li>
+                <li><a href="#">Lập trình Web</a></li>
+                <li><a href="#">Lập trình hướng đối tượng</a></li>
+                <li><a href="#">Cơ sở dữ liệu</a></li>
+            </ul>
+        </nav>
+        <section>
+            <form action="" class="form">
+                <h1>TỔNG SỐ CHÍNH PHƯƠNG</h1>
+                <br>
+                <p >
+                    <label class="p1"  for="">Nhập số nguyên n: </label>
+                    <input type="number" name="n" id="input" placeholder="Nhập số nguyên" required>
+                </p>
+                <br>
+                <p>
+                    <label for="">Tổng giá trị các số chính phương:  </label>
+                    <input type="text" name="" id="output" readonly="true" onchange="thaydoi()">
+                </p>
+                <br>
+                <input type="button" value="Tính" onclick="tinh()" style="padding: 4px">
+            </form>
+        </section>
+    </div>
+    <footer>BẢN QUYỀN THUỘC VỀ TEST 2</footer>
+
+    <script>
+        
+        function tinh() {
+            var inputValue = parseInt(document.getElementById("input").value);
+            // console.log(inputValue);
+            if (isNaN(inputValue)) {
+                alert("Vui lòng nhập dữ liệu !");
+                document.getElementById("input").focus();
+                return;
+            }
+            
+            var sum = 0;
+            for (var i = 1; i < inputValue; i++) {
+                for (var j = 1; j <= i; j++) {
+                    if (j * j == i) {
+                        sum += i;
+                    }
+                }
+            }
+            document.getElementById("output").value = sum;
+        }
+    </script>
+   
