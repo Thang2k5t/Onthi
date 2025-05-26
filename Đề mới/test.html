@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập Javascript - Thay đổi nội dung và màu sắc</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        h2 {
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .box-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 300px;
+            min-height: 80px; /* Đảm bảo đủ không gian cho nội dung */
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer; /* Cho biết có thể tương tác */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Tạo hiệu ứng chuyển đổi mượt mà */
+        }
+
+        #box1 {
+            background-color: #e0e0e0; /* Màu nền ban đầu của Box 1 */
+            color: #555; /* Màu chữ ban đầu của Box 1 */
+        }
+
+        #box2 {
+            background-color: #e0e0e0; /* Màu nền ban đầu của Box 2 */
+            color: #555; /* Màu chữ ban đầu của Box 2 */
+        }
+    </style>
+</head>
+<body>
+    <h2>Thay đổi nội dung và màu sắc khi di chuột vào hoặc click</h2>
+    <div class="box-container">
+        <div class="box" id="box1">
+            Chào mừng bạn đến với Haui
+            <br>
+            <small>(Box 1)</small>
+        </div>
+        <div class="box" id="box2">
+            Hãy học để thành công
+            <br>
+            <small>(Box 2)</small>
+        </div>
+    </div>
+    <script>
+  // Lấy tham chiếu đến Box 1 bằng ID
+const box1 = document.getElementById('box1');
+// Lấy tham chiếu đến Box 2 bằng ID
+const box2 = document.getElementById('box2');
+
+// Lưu trữ nội dung và màu sắc ban đầu của Box 1 để có thể reset nếu cần (tùy chọn)
+const box1InitialContent = box1.innerHTML; // Lưu cả HTML bên trong nếu có
+const box1InitialBgColor = window.getComputedStyle(box1).backgroundColor;
+const box1InitialColor = window.getComputedStyle(box1).color;
+
+// Lưu trữ nội dung và màu sắc ban đầu của Box 2
+const box2InitialContent = box2.innerHTML;
+const box2InitialBgColor = window.getComputedStyle(box2).backgroundColor;
+const box2InitialColor = window.getComputedStyle(box2).color;
+
+// Xử lý sự kiện click cho Box 1
+box1.addEventListener('click', function() {
+    // Thay đổi nội dung của Box 1
+    box1.textContent = "Nice to meet you";
+    // Thay đổi màu nền của Box 1 thành xanh lá cây
+    box1.style.backgroundColor = "lightgreen"; // Hoặc màu hex: #90EE90
+    // Thay đổi màu chữ (tùy chọn, để chữ dễ đọc hơn trên nền mới)
+    box1.style.color = "darkgreen";
+});
+
+// Xử lý sự kiện di chuột vào (mouseover) cho Box 2
+box2.addEventListener('mouseover', function() {
+    // Thay đổi nội dung của Box 2
+    box2.textContent = "Good luck for you";
+    // Thay đổi màu nền của Box 2 thành màu cam
+    box2.style.backgroundColor = "orange"; // Hoặc màu hex: #FFA500
+    // Thay đổi màu chữ (tùy chọn)
+    box2.style.color = "white";
+});
+
+// *Quan trọng*: Thêm sự kiện di chuột ra (mouseout) cho Box 2 để nó trở về trạng thái ban đầu
+box2.addEventListener('mouseout', function() {
+    // Đặt lại nội dung và màu sắc của Box 2 về trạng thái ban đầu
+    box2.innerHTML = box2InitialContent; // Sử dụng innerHTML để giữ lại thẻ <small>
+    box2.style.backgroundColor = box2InitialBgColor;
+    box2.style.color = box2InitialColor;
+});
+    </script>
+
+</body>
+</html>

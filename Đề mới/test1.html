@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .box {
+            width: 300px;
+            height: 50px;
+            border: 1px solid black;
+            margin: 20px;
+            text-align: center;
+            line-height: 50px;
+            transition: all 0.3s;
+        }
+    </style>
+</head>
+<body>
+
+<div id="box1" class="box" onmouseover="hoverBox1()" onmouseout="resetBox1()">Box 1</div>
+<div id="box2" class="box" onmouseover="hoverBox2()" onmouseout="resetBox2()">Box 2</div>
+
+<script>
+    function hoverBox1() {
+        let box = document.getElementById("box1");
+        box.innerHTML = "Chào mừng bạn đến với Haui";
+        box.style.backgroundColor = "lightgreen";
+    }
+
+    function resetBox1() {
+        let box = document.getElementById("box1");
+        box.innerHTML = "Box 1";
+        box.style.backgroundColor = "white";
+    }
+
+    function hoverBox2() {
+        let box = document.getElementById("box2");
+        box.innerHTML = "Hay học để thành công";
+        box.style.backgroundColor = "orange";
+    }
+
+    function resetBox2() {
+        let box = document.getElementById("box2");
+        box.innerHTML = "Box 2";
+        box.style.backgroundColor = "white";
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài tập Javascript</title>
+    <style>
+        /* Tùy chỉnh CSS nếu cần */
+        #hinhAnh {
+            cursor: pointer; /* Thay đổi con trỏ chuột thành hình bàn tay để người dùng biết là có thể click */
+        }
+        #ketQua {
+            margin-top: 20px;
+            font-size: 20px;
+            color: blue;
+            font-weight: bold;
+        }
+        img:hover{
+              transform: scale(1.1);
+        }
+        img{
+             margin: auto 120px;
+        }
+        .content{
+            margin: auto 500px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+    <h1>Click vào hình ảnh để xem thông báo</h1>
+    <img id="hinhAnh" src="hóa.png" alt="Hình minh họa hiệu ứng">
+    <p id="ketQua"></p>
+     </div>
+    <script>
+        // Lấy tham chiếu đến phần tử hình ảnh bằng ID của nó
+const hinhAnh = document.getElementById('hinhAnh');
+
+// Lấy tham chiếu đến phần tử để hiển thị kết quả
+const ketQua = document.getElementById('ketQua');
+
+// Thêm trình lắng nghe sự kiện 'click' cho hình ảnh
+hinhAnh.addEventListener('click', function() {
+    // Khi hình ảnh được click, thay đổi nội dung của phần tử 'ketQua'
+    ketQua.textContent = "Chào mừng các bạn đến với lớp học thiết kế web";
+});
+    </script>
+
+</body>
+</html>
